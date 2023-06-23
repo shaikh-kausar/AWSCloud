@@ -1,0 +1,66 @@
+*Steps for creating Virtual Private Cloud(VPC)*
+================================================================
+> go to the VPC service in AWS.
+> Under that click on create VPC.
+> Choose "VPC only".
+> give name to the VPC as your wish e.g. my_vpc
+> select IPV4 CIDR block
+> type in that 10.0.0.0/16
+> Tenancy - keep it Default
+> click on Create VPC button.
+> Done.
+----------------------------------------------------------------
+*Create Subnet in our own VPC*
+================================================================
+*Create Public Subnet*
+-------------------------------------------------
+> on left panel in vpc service click on *Subnet* menu
+> select vpc from drop down list..e.g. my_vpc
+> give name to subnet e.g. public vpc
+> Select Availability Zone 
+e.g.us-east-1a
+> Select CIDR Range (10.0.0.0/24)
+> Click on create subnet.
+----------------------------------------------------------------
+*Create Private Subnet*
+================================================================
+> on left panel in vpc service click on *Subnet* menu
+> select vpc from drop down list..e.g. my_vpc
+> give name to subnet e.g. private vpc
+> Select Availability Zone e.g. us-east-1b
+Choose diffrent from public subnet.
+> Select CIDR Range (10.0.1.0/24)
+> Click on create subnet.
+------------------------------------------------------------------
+*Create Internet Gateway*
+=================================
+> on left panel in vpc service click on *Internet Gateway* menu.
+> give name to gateway e.g. my internet gateway.
+> click on create internet gateway.
+> Select checkbox of internet gateway and click on Action button.
+> assign vpc-> select vpc.
+-------------------------------------------------------------------
+*Create route table*
+===================================================================
+> go into *Route Table* menu from left panel of vpc.
+> click on create route table button.
+> give name e.g. Public route
+> Click on create route table button.
+--------------------------------------------------------------------
+*Assign Internet Gateway to route table*
+=================================
+> check mark on VPC name.
+> Click on edit routes.
+> type ip range as "0.0.0.0/0"
+> target Internet gateway.
+--------------------------------------------------------------------
+*Subnet Association*
+====================================================================
+> From the route click on subnet association.
+> Select public subnet.
+> Save Association.
+
+> select public subnet from subnet section
+> Click on Action button.
+> select enable auto assign IP Address.
+--------------------------------------------------------------------
